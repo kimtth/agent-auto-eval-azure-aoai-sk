@@ -8,7 +8,7 @@ from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
 
 load_dotenv()
 
-# This scenario uses Litellm to access LLMs. To use Azure OpenAI, configure the required Azure OpenAI environment variables for Litellm.
+# The langwatch-scenario uses Litellm to access LLMs. To use Azure OpenAI, configure the required Azure OpenAI environment variables for Litellm.
 # This allows Scenario to use Azure OpenAI models seamlessly
 os.environ["AZURE_API_KEY"] = os.getenv("AZURE_OPENAI_API_KEY", "")
 os.environ["AZURE_API_BASE"] = os.getenv("AZURE_OPENAI_ENDPOINT", "")
@@ -81,7 +81,6 @@ class CoordinatorAgent(BaseAgent):
 # Check multi-agent response for comprehensive planning
 def check_multi_agent_response(result):
     """Verify the simulation completed successfully"""
-    # Simply check if the result indicates success
     # The detailed agent interaction verification is handled by the JudgeAgent
     print(f"Simulation completed with success: {result.success}")
     if hasattr(result, 'messages') and result.messages:
